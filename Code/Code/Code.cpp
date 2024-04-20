@@ -4,34 +4,21 @@ int main()
 {
 	setlocale(LC_ALL, "RUS");
 
-	cout << "Введите первый член прогрессии:" << endl;
+	Progression progression = make_progression(); //создаем объект класса прогрессии
 
-	double first;
+	progression.Show(); //печатаем прогрессию
 
-	cin >> first;
-
-	int r;
-
-	do
-	{
-		cout << "Введите r:" << endl;
-		cin >> r;
-
-	} 
-	while (r < 0);
-
-	Progression* progression = new Progression(first, r);
+	cout << endl;
 
 	int j;
 
 	do
 	{
 		cout << "Введите j:" << endl;;
-		cin >> j;
+		cin >> j; //получаем номер элемента прогрессии, который надо вывести
 	}
 	while (j < 0);
 
-	cout << "Элемент прогресси по заданому номеру: " << progression->GetJElementOfProgression(j) << endl;
-
-	delete progression;
+	//Выводим j-ый элемент
+	cout << "Элемент прогресси по заданому номеру: " << progression.GetJElementOfProgression(j) << endl;
 }
